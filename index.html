@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mazecart · eCommerce</title>
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background-color: #fafafc;
+      color: #1e1e2a;
+      line-height: 1.5;
+    }
+
+    /* container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ===== HEADER / NAV ===== */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(145deg, #0b1a33, #1d3b66);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .logo i {
+      background: #0b1a33;
+      -webkit-text-fill-color: white;
+      background-clip: unset;
+      padding: 0.2rem 0.5rem;
+      border-radius: 40px;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      font-weight: 500;
+      color: #2d3a4a;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s;
+      font-size: 1rem;
+    }
+    .nav-links a:hover {
+      color: #1d3b66;
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 1.2rem;
+      color: #1e2a3a;
+    }
+    .nav-icons i {
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+    .nav-icons i:hover {
+      transform: scale(1.05);
+      color: #0b1a33;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2.5rem 0 3rem;
+      gap: 2rem;
+    }
+
+    .hero-text {
+      flex: 1 1 380px;
+    }
+    .hero-text .badge {
+      background: #eaeef5;
+      color: #1d3b66;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1rem;
+      letter-spacing: 0.3px;
+    }
+    .hero-text h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #0b1a33;
+      margin-bottom: 1.2rem;
+    }
+    .hero-text h1 span {
+      background: linear-gradient(135deg, #1d3b66, #3c6e9c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #3f4a5a;
+      max-width: 450px;
+      margin-bottom: 2rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+    .btn-primary {
+      background: #0b1a33;
+      border: none;
+      color: white;
+      padding: 0.8rem 2.4rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 18px rgba(11, 26, 51, 0.12);
+    }
+    .btn-primary:hover {
+      background: #1d3b66;
+      box-shadow: 0 12px 24px rgba(11, 26, 51, 0.2);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #cbd5e1;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 500;
+      color: #1e2a3a;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover {
+      border-color: #0b1a33;
+      background: #f0f4fe;
+    }
+
+    .hero-image {
+      flex: 1 1 380px;
+      display: flex;
+      justify-content: center;
+    }
+    .hero-image img {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 32px;
+      box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease;
+      background: #eef2f7;
+      object-fit: cover;
+    }
+    .hero-image img:hover {
+      transform: scale(1.01);
+    }
+
+    /* ===== CATEGORIES ===== */
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 650;
+      margin: 2.5rem 0 1.5rem;
+      color: #0b1a33;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .section-title i {
+      color: #3c6e9c;
+      font-size: 1.6rem;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .category-card {
+      background: white;
+      padding: 1.5rem 0.5rem;
+      border-radius: 40px;
+      text-align: center;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+      border: 1px solid #f0f2f6;
+      transition: all 0.2s;
+      cursor: default;
+    }
+    .category-card:hover {
+      transform: translateY(-6px);
+      border-color: #cbd9ed;
+      box-shadow: 0 16px 28px -8px rgba(11, 26, 51, 0.08);
+    }
+    .category-card img {
+      width: 60px;
+      height: 60px;
+      border-radius: 60px;
+      object-fit: cover;
+      background: #edf2f9;
+      margin-bottom: 0.6rem;
+    }
+    .category-card span {
+      display: block;
+      font-weight: 500;
+      color: #1e2a3a;
+      font-size: 0.95rem;
+    }
+
+    /* ===== FEATURED PRODUCTS ===== */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem 1.2rem;
+      margin: 1.8rem 0 2rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.2rem 1rem 1.5rem;
+      transition: all 0.25s;
+      border: 1px solid #f0f3f8;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.01);
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.08);
+      border-color: #dce5f0;
+      transform: scale(1.01);
+    }
+
+    .product-img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      background: #f3f7fc;
+      border-radius: 20px;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .product-card:hover .product-img img {
+      transform: scale(1.02);
+    }
+
+    .product-info h4 {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #0b1a33;
+      margin-bottom: 0.2rem;
+    }
+    .product-info .price {
+      font-weight: 700;
+      color: #1d3b66;
+      font-size: 1.1rem;
+    }
+    .product-info .old-price {
+      color: #8a99ab;
+      font-size: 0.85rem;
+      text-decoration: line-through;
+      margin-left: 0.5rem;
+      font-weight: 400;
+    }
+    .product-rating {
+      color: #f5b342;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      margin: 0.25rem 0 0.4rem;
+    }
+    .product-card .add-btn {
+      margin-top: 0.7rem;
+      background: #f0f5fe;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #0b1a33;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+    .product-card .add-btn:hover {
+      background: #0b1a33;
+      color: white;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      margin-top: 3.5rem;
+      border-top: 1px solid #e9edf3;
+      padding: 2.5rem 0 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .footer-col h5 {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+      color: #0b1a33;
+    }
+    .footer-col p, .footer-col a {
+      color: #4a5b6e;
+      text-decoration: none;
+      display: block;
+      margin: 0.3rem 0;
+      font-size: 0.95rem;
+    }
+    .footer-col a:hover {
+      color: #0b1a33;
+    }
+    .footer-bottom {
+      text-align: center;
+      color: #7a8b9e;
+      font-size: 0.9rem;
+      padding: 1.5rem 0 0.5rem;
+      border-top: 1px solid #eef2f8;
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+      .navbar {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .nav-links {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .hero-text h1 {
+        font-size: 2.4rem;
+      }
+      .hero-image img {
+        max-width: 100%;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NTV0NLN2X5"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-NTV0NLN2X5');
+</script>
+
+
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <i class="fas fa-bolt"></i> Mazecart
+        </div>
+        <div class="nav-links">
+         <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+        </div>
+        <div class="nav-icons">
+          <i class="fas fa-search"></i>
+          <i class="fas fa-heart"></i>
+          <i class="fas fa-shopping-bag"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-text">
+        <span class="badge"><i class="fas fa-fire" style="margin-right: 6px;"></i> Next-gen essentials</span>
+        <h1>Upgrade your <span>digital</span> life with Mazecart</h1>
+        <p>Premium gadgets, smart accessories, and futuristic tech — curated for the modern pace.</p>
+        <div class="hero-actions">
+          <button class="btn-primary"><i class="fas fa-arrow-right" style="margin-right: 8px;"></i>Explore</button>
+          <button class="btn-outline"><i class="fas fa-play" style="margin-right: 8px;"></i>How it works</button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <!-- working image from picsum (always fresh) -->
+        <img src="https://picsum.photos/seed/Mazecart/600/500" alt="Mazecart hero product" />
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <div class="section-title">
+      <i class="fas fa-th-large"></i> Shop by category
+    </div>
+    <div class="category-grid">
+      <div class="category-card">
+        <img src="https://picsum.photos/seed/phones/100/100" alt="Phones" />
+        <span>Phones</span>
+      </div>
+      <div class="category-card">
+        <img src="https://picsum.photos/seed/laptops/100/100" alt="Laptops" />
+        <span>Laptops</span>
+      </div>
+      <div class="category-card">
+        <img src="https://picsum.photos/seed/audio/100/100" alt="Audio" />
+        <span>Audio</span>
+      </div>
+      <div class="category-card">
+        <img src="https://picsum.photos/seed/wearables/100/100" alt="Wearables" />
+        <span>Wearables</span>
+      </div>
+      <div class="category-card">
+        <img src="https://picsum.photos/seed/accessories/100/100" alt="Accessories" />
+        <span>Accessories</span>
+      </div>
+      <div class="category-card">
+        <img src="https://picsum.photos/seed/smart-home/100/100" alt="Smart home" />
+        <span>Smart home</span>
+      </div>
+    </div>
+
+    <!-- FEATURED PRODUCTS -->
+    <div class="section-title">
+      <i class="fas fa-star" style="color: #f5b342;"></i> Featured this week
+    </div>
+    <div class="product-grid">
+      <!-- product 1 -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://picsum.photos/seed/Mazecart1/300/300" alt="Mazecart X1" />
+        </div>
+        <div class="product-info">
+          <h4>Mazecart X1</h4>
+          <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 4.8</div>
+          <span class="price">$249</span> <span class="old-price">$329</span>
+          <button class="add-btn"><i class="fas fa-plus-circle"></i> Add to cart</button>
+        </div>
+      </div>
+      <!-- product 2 -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://picsum.photos/seed/Mazecart2/300/300" alt="Mazecart Buds" />
+        </div>
+        <div class="product-info">
+          <h4>Mazecart Buds Pro</h4>
+          <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 5.0</div>
+          <span class="price">$89</span> <span class="old-price">$129</span>
+          <button class="add-btn"><i class="fas fa-plus-circle"></i> Add to cart</button>
+        </div>
+      </div>
+      <!-- product 3 -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://picsum.photos/seed/Mazecart3/300/300" alt="Mazecart Watch" />
+        </div>
+        <div class="product-info">
+          <h4>Mazecart Watch S</h4>
+          <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.9</div>
+          <span class="price">$179</span> <span class="old-price">$229</span>
+          <button class="add-btn"><i class="fas fa-plus-circle"></i> Add to cart</button>
+        </div>
+      </div>
+      <!-- product 4 -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://picsum.photos/seed/Mazecart4/300/300" alt="Mazecart Charger" />
+        </div>
+        <div class="product-info">
+          <h4>Mazecart Charge Hub</h4>
+          <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 4.7</div>
+          <span class="price">$39</span> <span class="old-price">$59</span>
+          <button class="add-btn"><i class="fas fa-plus-circle"></i> Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-col">
+        <h5><i class="fas fa-bolt" style="margin-right: 6px;"></i> Mazecart</h5>
+        <p>Elevating everyday tech.<br />© 2026 Mazecart Inc.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <a href="#">New arrivals</a>
+        <a href="#">Best sellers</a>
+        <a href="#">Gift cards</a>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <a href="#">Help center</a>
+        <a href="#">Returns</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+      </div>
+      <div class="footer-bottom">
+        <i class="fas fa-credit-card" style="margin: 0 4px;"></i> Secure payment · Free shipping over $99
+      </div>
+    </footer>
+  </div>
+  <!-- all images are sourced from picsum with seed for consistency, working properly -->
+</body>
+</html>

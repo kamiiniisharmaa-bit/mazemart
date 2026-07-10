@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mazecart · Terms & Conditions</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ----- global reset & base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background: #fafafc;
+      color: #1e1e2a;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ----- header / nav (mirror home) ----- */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(145deg, #0b1a33, #1d3b66);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .logo i {
+      background: #0b1a33;
+      -webkit-text-fill-color: white;
+      background-clip: unset;
+      padding: 0.2rem 0.5rem;
+      border-radius: 40px;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      font-weight: 500;
+      color: #2d3a4a;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s;
+      font-size: 1rem;
+    }
+    .nav-links a:hover {
+      color: #1d3b66;
+    }
+    .nav-links a.active {
+      color: #0b1a33;
+      font-weight: 600;
+      border-bottom: 2px solid #1d3b66;
+      padding-bottom: 2px;
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 1.2rem;
+      color: #1e2a3a;
+    }
+    .nav-icons i {
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+    .nav-icons i:hover {
+      transform: scale(1.05);
+      color: #0b1a33;
+    }
+
+    /* ----- terms hero / title ----- */
+    .terms-header {
+      padding: 2.5rem 0 0.8rem;
+    }
+    .terms-header h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #0b1a33;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .terms-header h1 i {
+      color: #1d3b66;
+      font-size: 2.2rem;
+    }
+    .terms-header .sub {
+      color: #4a5b6e;
+      margin-top: 0.2rem;
+      font-size: 1rem;
+      border-left: 4px solid #1d3b66;
+      padding-left: 1rem;
+      background: #f0f4fc;
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin-top: 0.8rem;
+    }
+
+    /* ----- terms content (card style) ----- */
+    .terms-content {
+      background: white;
+      border-radius: 32px;
+      padding: 2.5rem 2.8rem;
+      margin: 1.8rem 0 2.5rem;
+      box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.06);
+      border: 1px solid #f0f3f8;
+    }
+
+    .terms-content h2 {
+      font-size: 1.5rem;
+      font-weight: 650;
+      color: #0b1a33;
+      margin: 1.8rem 0 0.6rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #eef2f8;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .terms-content h2 i {
+      color: #1d3b66;
+      font-size: 1.3rem;
+      width: 1.6rem;
+    }
+    .terms-content h2:first-of-type {
+      margin-top: 0;
+    }
+
+    .terms-content p {
+      margin-bottom: 1rem;
+      color: #2d3a4a;
+      font-size: 1rem;
+    }
+    .terms-content ul {
+      margin: 0.5rem 0 1.2rem 1.8rem;
+      color: #2d3a4a;
+    }
+    .terms-content ul li {
+      margin-bottom: 0.4rem;
+      list-style-type: disc;
+    }
+    .terms-content strong {
+      color: #0b1a33;
+    }
+
+    .terms-content .highlight-box {
+      background: #f5f9ff;
+      padding: 1rem 1.6rem;
+      border-radius: 20px;
+      margin: 1.5rem 0;
+      border-left: 6px solid #1d3b66;
+      color: #1e2a3a;
+    }
+    .terms-content .highlight-box i {
+      color: #1d3b66;
+      margin-right: 0.5rem;
+    }
+
+    .terms-content .divider {
+      height: 1px;
+      background: linear-gradient(to right, #e0e8f0, transparent);
+      margin: 2rem 0;
+    }
+
+    /* ----- back link & footer ----- */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #1d3b66;
+      font-weight: 500;
+      text-decoration: none;
+      margin: 0.5rem 0 1rem;
+      transition: gap 0.2s;
+    }
+    .back-link:hover {
+      gap: 1rem;
+      color: #0b1a33;
+    }
+
+    .footer {
+      margin-top: 2.5rem;
+      border-top: 1px solid #e9edf3;
+      padding: 2rem 0 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .footer-col h5 {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+      color: #0b1a33;
+    }
+    .footer-col p, .footer-col a {
+      color: #4a5b6e;
+      text-decoration: none;
+      display: block;
+      margin: 0.3rem 0;
+      font-size: 0.95rem;
+    }
+    .footer-col a:hover {
+      color: #0b1a33;
+    }
+    .footer-bottom {
+      text-align: center;
+      color: #7a8b9e;
+      font-size: 0.9rem;
+      padding: 1.2rem 0 0.2rem;
+      border-top: 1px solid #eef2f8;
+      margin-top: 0.8rem;
+      width: 100%;
+    }
+
+    /* ----- responsive tweaks ----- */
+    @media (max-width: 700px) {
+      .navbar {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .nav-links {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .terms-content {
+        padding: 1.8rem 1.2rem;
+      }
+      .terms-header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER (same as home, with "active" on terms) -->
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <i class="fas fa-bolt"></i> Mazecart
+        </div>
+        <div class="nav-links">
+         <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+        </div>
+        <div class="nav-icons">
+          <i class="fas fa-search"></i>
+          <i class="fas fa-heart"></i>
+          <i class="fas fa-shopping-bag"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- TERMS PAGE TITLE -->
+    <div class="terms-header">
+      <h1><i class="fas fa-file-contract"></i> Terms & Conditions</h1>
+      <div class="sub"><i class="fas fa-calendar-alt" style="margin-right: 8px;"></i> Last updated: June 17, 2026</div>
+    </div>
+
+    <!-- MAIN TERMS CONTENT -->
+    <div class="terms-content">
+      <!-- 1. Introduction -->
+      <h2><i class="fas fa-info-circle"></i> 1. Introduction</h2>
+      <p>Welcome to <strong>Mazecart</strong>. By accessing or using our website, mobile app, or any related services (collectively, the “Services”), you agree to be bound by these Terms & Conditions. If you do not agree with any part of these terms, you must not use our Services.</p>
+      <p>These Terms apply to all visitors, users, and others who wish to access or use the Service. Please read them carefully.</p>
+
+      <!-- 2. General conditions -->
+      <h2><i class="fas fa-gavel"></i> 2. General Conditions</h2>
+      <p>We reserve the right to refuse service to anyone for any reason at any time. You understand that your content (not including credit card information) may be transferred unencrypted and involve (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices.</p>
+      <ul>
+        <li>You must not use our products for any illegal or unauthorized purpose.</li>
+        <li>You must not, in the use of the Service, violate any laws in your jurisdiction (including but not limited to copyright laws).</li>
+        <li>We may update or modify these Terms at any time, and your continued use constitutes acceptance.</li>
+      </ul>
+
+      <!-- 3. Products & pricing -->
+      <h2><i class="fas fa-tag"></i> 3. Products & Pricing</h2>
+      <p>All products displayed on Mazecart are subject to availability. We strive to display accurate pricing and product information, but errors may occur. If a product is listed at an incorrect price, we reserve the right to refuse or cancel any orders placed for that product.</p>
+      <div class="highlight-box">
+        <i class="fas fa-shield-alt"></i> <strong>Price guarantee:</strong> We match our own lowest price within 14 days of purchase. Contact our support team for adjustment.
+      </div>
+      <p>We reserve the right to limit the quantity of products we supply. All descriptions and specifications are subject to change without notice.</p>
+
+      <!-- 4. Orders & payment -->
+      <h2><i class="fas fa-credit-card"></i> 4. Orders & Payment</h2>
+      <p>When you place an order, you agree to provide current, complete, and accurate purchase and account information. You authorize us to charge your selected payment method for the total amount of your order (including any taxes and shipping fees).</p>
+      <ul>
+        <li>We accept major credit cards, PayPal, and other payment methods as displayed at checkout.</li>
+        <li>Order confirmation is sent via email; however, we reserve the right to cancel any order due to suspected fraud or unauthorized activity.</li>
+        <li>If we are unable to fulfill your order, we will notify you and issue a full refund.</li>
+      </ul>
+
+      <!-- 5. Shipping & delivery -->
+      <h2><i class="fas fa-shipping-fast"></i> 5. Shipping & Delivery</h2>
+      <p>We offer standard and expedited shipping options. Estimated delivery times are provided at checkout but are not guaranteed. Risk of loss and title for items pass to you upon delivery to the carrier.</p>
+      <p>We currently ship to most regions worldwide. Additional customs fees or import duties may apply and are the responsibility of the buyer.</p>
+
+      <!-- 6. Returns & refunds -->
+      <h2><i class="fas fa-undo-alt"></i> 6. Returns & Refunds</h2>
+      <p>We stand behind our products. If you are not entirely satisfied, you may return eligible items within <strong>30 days</strong> of receipt for a full refund or exchange. Items must be in original condition with all packaging and tags.</p>
+      <ul>
+        <li>Return shipping costs are covered by Mazecart for defective or incorrect items.</li>
+        <li>For change-of-mind returns, return shipping fees apply.</li>
+        <li>Refunds are processed within 7–10 business days after we receive your return.</li>
+      </ul>
+
+      <!-- 7. User accounts -->
+      <h2><i class="fas fa-user-lock"></i> 7. User Accounts</h2>
+      <p>To access certain features, you may need to create an account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. Notify us immediately of any unauthorized use.</p>
+      <p>We reserve the right to suspend or terminate accounts that violate these Terms or applicable laws.</p>
+
+      <!-- 8. Intellectual property -->
+      <h2><i class="fas fa-copyright"></i> 8. Intellectual Property</h2>
+      <p>All content on the Mazecart website — including text, graphics, logos, images, and software — is the property of Mazecart or its content suppliers and is protected by copyright and trademark laws. You may not reproduce, distribute, or create derivative works without our explicit written consent.</p>
+
+      <!-- 9. Limitation of liability -->
+      <h2><i class="fas fa-balance-scale"></i> 9. Limitation of Liability</h2>
+      <p>To the fullest extent permitted by law, Mazecart shall not be liable for any indirect, incidental, special, or consequential damages arising out of or in connection with your use of the Services. Our total liability shall not exceed the amount you paid for the product or service giving rise to the claim.</p>
+      <div class="highlight-box">
+        <i class="fas fa-exclamation-triangle" style="color: #b8860b;"></i> Some jurisdictions do not allow the exclusion of certain warranties or limitations of liability, so the above limitations may not apply to you.
+      </div>
+
+      <!-- 10. Governing law -->
+      <h2><i class="fas fa-gavel"></i> 10. Governing Law</h2>
+      <p>These Terms shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law principles. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts located in San Francisco, CA.</p>
+
+      <!-- 11. Contact -->
+      <h2><i class="fas fa-envelope"></i> 11. Contact Us</h2>
+      <p>If you have any questions about these Terms, please reach out to us:</p>
+      <ul>
+        <li><i class="fas fa-envelope" style="width: 1.4rem;"></i> legal@Mazecart.com</li>
+        <li><i class="fas fa-phone-alt" style="width: 1.4rem;"></i> +1 (800) 555‑NEXO</li>
+        <li><i class="fas fa-map-pin" style="width: 1.4rem;"></i> 123 Tech Plaza, Suite 400, San Francisco, CA 94105</li>
+      </ul>
+
+      <div class="divider"></div>
+      <p style="font-size: 0.95rem; color: #4a5b6e; text-align: center;">
+        <i class="fas fa-check-circle" style="color: #1d3b66;"></i> By using Mazecart, you acknowledge that you have read and understood these Terms & Conditions.
+      </p>
+    </div>
+
+    <!-- back to home link -->
+    <a href="#" class="back-link"><i class="fas fa-arrow-left"></i> Back to homepage</a>
+
+    <!-- FOOTER (same as home) -->
+    <footer class="footer">
+      <div class="footer-col">
+        <h5><i class="fas fa-bolt" style="margin-right: 6px;"></i> Mazecart</h5>
+        <p>Elevating everyday tech.<br />© 2026 Mazecart Inc.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <a href="#">New arrivals</a>
+        <a href="#">Best sellers</a>
+        <a href="#">Gift cards</a>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <a href="#">Help center</a>
+        <a href="#">Returns</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+      </div>
+      <div class="footer-bottom">
+        <i class="fas fa-credit-card" style="margin: 0 4px;"></i> Secure payment · Free shipping over $99
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
